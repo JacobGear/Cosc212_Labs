@@ -161,3 +161,9 @@ main {
 footer {
 	text-align: right;
 }
+
+/** From this point on its my own CSS code **/
+#arrImg {
+	text-align: center;
+}
+
