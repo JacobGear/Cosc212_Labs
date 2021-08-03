@@ -19,6 +19,7 @@ var ClassicCinemaIDB = (function () {
         * @return objectStore
         */
     function getObjectStore(store_name, mode) {
+        console.log(store_name);
         var tx = db.transaction(store_name, mode);
         return tx.objectStore(store_name);
     }
@@ -30,18 +31,63 @@ var ClassicCinemaIDB = (function () {
     pub.getMovieInfo = function (title) {
         var store = getObjectStore("movies");
         var request = store.get(title);
-//error handler
+        //error handler
         request.onerror = function (e) {
             alert("getMovieInfo error " + request.error);
         };
-//success handler
+        //success handler
         request.onsuccess = function (e) {
             alert(request.result.title + "\n" + request.result.price + "\n" +
                 request.result.director);
         };
     };
 
-    //Some movie data to get us started
+    /**
+     * Adds a movie to the objectStore
+     * @param {object} movieData The object you want added to the store.
+     * The movieData object must take the following form:
+     * title: {string}
+     * director: [<string>]
+     * starring: [<string>]
+     * comments: {string}
+     * price: {float}
+     */
+    pub.addMovie = function (movieData) {
+        //start the transaction and get the store
+        var store = getObjectStore("movies", "readwrite");
+        var request = store.add(movieData);
+        //success handler
+        request.onsuccess = function (event) {
+            alert("movie Added");
+        }
+        //error handler
+        request.onerror = function (event) {
+            alert("addMovie error", this.error);
+        }
+    };
+
+    /***Adds a review to the objectStore
+     *Adding a movie to the object store
+     *@param {object} review The object you want added to the store.
+     * The review object must take the following form:
+     * user: {string}
+     * title: {string}
+     * review: {integer} */
+    pub.addReview =function(review) {
+        var store = getObjectStore("reviews", "readwrite")
+        var request = store.add(review);
+         //success handler
+        request.onsuccess = function(event) {
+            alert("review Added");
+        };
+        //error handler
+        request.onerror =function(event) {
+            alert("addReview error",this.error);
+        };
+    };
+
+
+        //Some movie data to get us started
     const movieData = [
         {
             title: "Gone With the Wind (1939)",
@@ -105,6 +151,10 @@ var ClassicCinemaIDB = (function () {
     // version number is higher than existing db
     request.onupgradeneeded = function (event) {
         db = event.target.result;
+
+        // Create an objectStore to hold reviews We're// going to use a key generator to make our keys;
+        // it's guaranteed to be unique.
+        var reviewObjectStore = db.createObjectStore("reviews", {autoIncrement:true});
 
         // Create an objectStore to hold information about our movies. We’re
         // going to use "title" as our key path because it’s guaranteed to be
