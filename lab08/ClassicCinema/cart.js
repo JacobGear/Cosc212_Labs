@@ -1,9 +1,8 @@
-/*global Cookie*/
 let Cart = (function(){
     let pub = {};
 
     function getCart(){
-        let cart = Cookie.get("cart");
+        let cart = window.sessionStorage.getItem("cart");
         if(cart != null){
             return JSON.parse(cart);
         } else {
@@ -12,7 +11,7 @@ let Cart = (function(){
     }
 
     function updateCookies(item){
-        let cart = Cookie.get("cart");
+        let cart = window.sessionStorage.getItem("cart");
         let cartObj = [];
         if(cart != null){
             cartObj = JSON.parse(cart);
@@ -21,7 +20,7 @@ let Cart = (function(){
             cartObj.push(item);
         }
         let cartStr = JSON.stringify(cartObj);
-        Cookie.set("cart", cartStr, 1);
+        window.sessionStorage.setItem("cart", cartStr);
     }
 
     function addToCart(){
@@ -32,6 +31,11 @@ let Cart = (function(){
         item.price = price;
         item.title = title;
         updateCookies(item);
+    }
+
+    function clearCart(){
+        window.sessionStorage.removeItem("cart");
+        document.location.reload(true);
     }
 
     pub.showCart = function () {
@@ -55,6 +59,16 @@ let Cart = (function(){
         }
         totalHTML.innerHTML = "$" + total.toString();
 
+        let clear = document.getElementById("clearCart");
+        clear.onclick = clearCart;
+    }
+
+    pub.showCheckout = function (){
+        let id = document.getElementById("checkoutForm");
+        let cart = getCart();
+        if (cart === null){
+            id.style.display = "none";
+        }
     }
 
     pub.setup = function(){
@@ -70,6 +84,7 @@ let Cart = (function(){
 if (window.addEventListener) {
     window.addEventListener("load", Cart.setup);
     window.addEventListener("load", Cart.showCart);
+    window.addEventListener("load", Cart.showCheckout);
 } else if (window.attachEvent) {
     window.attachEvent("onload", Cart.setup);
 } else {
