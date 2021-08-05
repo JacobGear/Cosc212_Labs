@@ -1,4 +1,4 @@
-/**
+  /**
  * Validation functions for the Classic Cinema site.
  *
  * Created by: Steven Mills, 09/04/2014
@@ -188,6 +188,45 @@ var SampleValidator = (function () {
         }
     }
 
+    function checkEmailAddress(email, messages) {
+        let pattern = /^[0-9A-Za-z_-]+@+[0-9A-Za-z_-]+.+[0-9A-Za-z_-]+$/;
+        let pass = pattern.test(email);
+        if(pass === false){
+            messages.push("Emails must have the form name@domain");
+        }
+    }
+
+    function checkPostcode(postcode, messages) {
+        let pattern = /^[0-9]{4}$/;
+        let pass = pattern.test(postcode);
+        if(pass === false){
+            messages.push("Postcodes must consist of exactly 4 digits");
+        }
+    }
+
+    function checkDeliveryName(name, messages) {
+        if (!checkNotEmpty(name)) {
+            messages.push("You must enter a recipient");
+        }
+    }
+
+    function checkDeliveryAddress(address, messages) {
+        if (!checkNotEmpty(address)) {
+            messages.push("You must enter an address");
+        }
+    }
+
+    function checkDeliveryCity(city, messages) {
+        if (!checkNotEmpty(city)) {
+            messages.push("You must enter a city");
+        }
+    }
+
+    function errorMessages(messages) {
+        let errorID = document.getElementById("errorMessage");
+        errorID.innerHTML = JSON.stringify(messages);
+    }
+
     /**
      * Validate the checkout form
      *
@@ -196,7 +235,7 @@ var SampleValidator = (function () {
      * @return False, because server-side form handling is not implemented. Eventually will return true on success and false otherwise.
      */
     function validateCheckout() {
-        var messages, cardType, cardNumber, cardMonth, cardYear, cardValidation, errorHTML;
+        let messages, cardType, cardNumber, cardMonth, cardYear, cardValidation, errorHTML;
 
         // Default assumption is that everything is good, and no messages
         messages = [];
@@ -223,15 +262,36 @@ var SampleValidator = (function () {
         cardValidation = document.getElementById("cardValidation").value;
         checkCreditCardValidation(cardType, cardValidation, messages);
 
+        // email validation
+        let deliveryEmail = document.getElementById("deliveryEmail").value;
+        checkEmailAddress(deliveryEmail, messages);
+
+        // postcode validation
+        let deliveryPostcode = document.getElementById("deliveryPostcode").value;
+        checkPostcode(deliveryPostcode, messages);
+
+        // Recipient name validation
+        let deliveryName = document.getElementById("deliveryName").value;
+        checkDeliveryName(deliveryName, messages);
+
+        // Recipient address validation
+        let deliveryAddress1 = document.getElementById("deliveryAddress1").value;
+        checkDeliveryAddress(deliveryAddress1, messages);
+
+        // Recipient city validation
+        let deliveryCity = document.getElementById("deliveryCity").value;
+        checkDeliveryCity(deliveryCity, messages);
+
         if (messages.length === 0) {
             // Checkout successful, clear the cart
-
+            window.sessionStorage.removeItem("cart");
             // Display a friendly message
-
+            let errorID = document.getElementById("errorMessage");
+            errorID.innerHTML = "Thank you for your purchase :)";
         } else {
             // Report the error messages
             console.log(JSON.stringify(messages));
-
+            errorMessages(messages);
         }
 
         // Stop the form from submitting, which would trigger a page load
@@ -251,6 +311,7 @@ var SampleValidator = (function () {
         form.onsubmit = validateCheckout;
         document.getElementById("cardNumber").onkeypress = checkKeyIsDigit;
         document.getElementById("cardValidation").onkeypress = checkKeyIsDigit;
+        document.getElementById("deliveryPostcode").onkeypress = checkKeyIsDigit;
     };
 
     // Expose public interface
