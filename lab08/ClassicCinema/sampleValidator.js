@@ -224,7 +224,9 @@ var SampleValidator = (function () {
 
     function errorMessages(messages) {
         let errorID = document.getElementById("errorMessage");
-        errorID.innerHTML = JSON.stringify(messages);
+        for(let message of messages){
+            errorID.innerHTML += "<li>" + message +  "</li>"
+        }
     }
 
     /**
@@ -239,12 +241,6 @@ var SampleValidator = (function () {
 
         // Default assumption is that everything is good, and no messages
         messages = [];
-
-        // Validate Address Details
-
-        // TO BE ADDED
-
-        // Validate Credit Card Details
 
         // This depends a bit on the type of card, so get that first
         cardType = document.getElementById("cardType").value;
@@ -286,8 +282,9 @@ var SampleValidator = (function () {
             // Checkout successful, clear the cart
             window.sessionStorage.removeItem("cart");
             // Display a friendly message
-            let errorID = document.getElementById("errorMessage");
-            errorID.innerHTML = "Thank you for your purchase :)";
+            /*let errorID = document.getElementById("errorMessage");
+            errorID.innerHTML = "Thank you for your purchase :)";*/
+            location.href = "thank_you.html";
         } else {
             // Report the error messages
             console.log(JSON.stringify(messages));
