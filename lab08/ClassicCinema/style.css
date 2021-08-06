@@ -167,8 +167,9 @@ footer {
 	text-align: center;
 }
 
-#checkoutForm {
-	text-align: right;
+#checkoutForm label{
+	display: inline-block;
+	width: 60px;
 }
 
 #errorMessage {
