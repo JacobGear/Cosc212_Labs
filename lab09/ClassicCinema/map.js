@@ -86,6 +86,7 @@ let Map = (function () {
             } else if(title.textContent === 'South'){
                 title.style.color="green";
             }
+            title.style.cursor = "pointer";
             title.onclick = centreMap;
         }
     }
