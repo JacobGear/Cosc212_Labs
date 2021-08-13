@@ -223,14 +223,11 @@ var SampleValidator = (function () {
     }
 
     function errorMessages(messages) {
-        let errorID = $("#errorMessage");
-        let theMessage = "";
+        let errorID = document.getElementById("errorMessage");
         for(let message of messages){
-            theMessage += "<li>" + message +  "</li>";
-            errorID.html(theMessage);
+            errorID.innerHTML += "<li>" + message +  "</li>"
         }
     }
-
 
     /**
      * Validate the checkout form
@@ -262,28 +259,23 @@ var SampleValidator = (function () {
         checkCreditCardValidation(cardType, cardValidation, messages);
 
         // email validation
-        //let deliveryEmail = document.getElementById("deliveryEmail").value;
-        let deliveryEmail = $("#deliveryEmail").val();
+        let deliveryEmail = document.getElementById("deliveryEmail").value;
         checkEmailAddress(deliveryEmail, messages);
 
         // postcode validation
-        //let deliveryPostcode = document.getElementById("deliveryPostcode").value;
-        let deliveryPostcode = $("#deliveryPostcode").val();
+        let deliveryPostcode = document.getElementById("deliveryPostcode").value;
         checkPostcode(deliveryPostcode, messages);
 
         // Recipient name validation
-        //let deliveryName = document.getElementById("deliveryName").value;
-        let deliveryName = $("#deliveryName").val();
+        let deliveryName = document.getElementById("deliveryName").value;
         checkDeliveryName(deliveryName, messages);
 
         // Recipient address validation
-        //let deliveryAddress1 = document.getElementById("deliveryAddress1").value;
-        let deliveryAddress1 = $("#deliveryAddress1").val();
+        let deliveryAddress1 = document.getElementById("deliveryAddress1").value;
         checkDeliveryAddress(deliveryAddress1, messages);
 
         // Recipient city validation
-        //let deliveryCity = document.getElementById("deliveryCity").value;
-        let deliveryCity = $("#deliveryCity").val();
+        let deliveryCity = document.getElementById("deliveryCity").value;
         checkDeliveryCity(deliveryCity, messages);
 
         if (messages.length === 0) {
@@ -312,19 +304,22 @@ var SampleValidator = (function () {
      * Note that if the validation fails (returns false) then the form is not submitted.
      */
     pub.setup = function () {
-        //var form = document.getElementById("checkoutForm");
-        //let form = $("#checkoutForm").get(0);
-        $("#checkoutForm").submit(validateCheckout);
-        //document.getElementById("cardNumber").onkeypress = checkKeyIsDigit;
-        $("#cardNumber").keypress(checkKeyIsDigit);
-        //document.getElementById("cardValidation").onkeypress = checkKeyIsDigit;
-        $("#cardValidation").keypress(checkKeyIsDigit);
-        //document.getElementById("deliveryPostcode").onkeypress = checkKeyIsDigit;
-        $("#deliveryPostcode").keypress(checkKeyIsDigit);
+        var form = document.getElementById("checkoutForm");
+        form.onsubmit = validateCheckout;
+        document.getElementById("cardNumber").onkeypress = checkKeyIsDigit;
+        document.getElementById("cardValidation").onkeypress = checkKeyIsDigit;
+        document.getElementById("deliveryPostcode").onkeypress = checkKeyIsDigit;
     };
 
     // Expose public interface
     return pub;
 }());
 
-  $(document).ready(SampleValidator.setup);
+// The usual onload event handling to call SampleValidator.setup
+if (window.addEventListener) {
+    window.addEventListener('load', SampleValidator.setup);
+} else if (window.attachEvent) {
+    window.attachEvent('onload', SampleValidator.setup);
+} else {
+    alert("Could not attach 'SampleValidator.setup' to the 'window.onload' event");
+}
