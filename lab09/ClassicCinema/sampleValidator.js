@@ -284,7 +284,7 @@ var SampleValidator = (function () {
             // Display a friendly message
             /*let errorID = document.getElementById("errorMessage");
             errorID.innerHTML = "Thank you for your purchase :)";*/
-            location.href = "thank_you.html";
+            location.href = "thank_you.php";
         } else {
             // Report the error messages
             console.log(JSON.stringify(messages));

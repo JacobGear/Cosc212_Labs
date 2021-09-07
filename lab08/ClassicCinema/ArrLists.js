@@ -27,11 +27,11 @@ var Carousel = (function(){
 
     pub.setup = function() {
         categoryList.push(new MovieCategory("Classic",
-            "images/Metropolis.jpg", "classic.html"));
+            "images/Metropolis.jpg", "classic.php"));
         categoryList.push(new MovieCategory("Science Fiction", "images/Plan_9_from_Outer_Space.jpg",
-            "scifi.html"));
+            "scifi.php"));
         categoryList.push(new MovieCategory("Alfred Hitchcock",
-            "images/Vertigo.jpg", "hitchcock.html"));
+            "images/Vertigo.jpg", "hitchcock.php"));
         nextCategory();
         setInterval(nextCategory, 2000);
     }

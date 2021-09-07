@@ -16,10 +16,10 @@ function nextImage() {
 
 function setup() {
     imageList = [];
-    imageList.push(new MovieCategory("Classic Films", "images/Metropolis.jpg", "classic.html"));
+    imageList.push(new MovieCategory("Classic Films", "images/Metropolis.jpg", "classic.php"));
     imageList.push(new MovieCategory("Science Fiction & Horror","images/Plan_9_from_Outer_Space.jpg",
-        "scifi.html"));
-    imageList.push(new MovieCategory("Alfred Hitchcock","images/Vertigo.jpg", "hitchcock.html"));
+        "scifi.php"));
+    imageList.push(new MovieCategory("Alfred Hitchcock","images/Vertigo.jpg", "hitchcock.php"));
     imageIndex = 0; // counter
     nextImage();
     setInterval(nextImage, 3000);
