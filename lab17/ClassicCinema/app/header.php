@@ -1,15 +1,4 @@
-<head>
-    <title>Classic Cinema</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style/style.css">
-    <?php
-    include("includeScripts.php");
-    ?>
-</head>
-
-<body>
-
-    <header>
+<header>
     <h1>Classic Cinema</h1>
     <div id="user">
         <div id="login">
