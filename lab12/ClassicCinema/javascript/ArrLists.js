@@ -4,9 +4,7 @@ let Carousel = (function () {
     let categoryIndex = 0;
 
     function nextCategory() {
-        $("#arrImg").fadeIn(2000).fadeOut(2000);
-        let element = document.getElementById("arrImg");
-        element.innerHTML = categoryList[categoryIndex].makeHTML();
+        $("#arrImg").html(categoryList[categoryIndex].makeHTML()).fadeIn(2000).fadeOut(2000);
         categoryIndex += 1;
         if (categoryIndex >= categoryList.length) {
             categoryIndex = 0;
