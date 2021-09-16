@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="7e45f792-9b94-486a-8f53-fbc514c19fa7" name="Sapphire" url="localhost:8888">
-        <fileTransfer rootFolder="/devel/jgear/projects/labs/lab15/ClassicCinema" accessType="SFTP" host="localhost" port="8887" sshConfigId="2a15c630-5275-4835-a754-3ff0f183caca" sshConfig="jgear@localhost:8887 password">
+        <fileTransfer rootFolder="/devel/jgear/projects/labs/" accessType="SFTP" host="localhost" port="8887" sshConfigId="2a15c630-5275-4835-a754-3ff0f183caca" sshConfig="jgear@localhost:8887 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
