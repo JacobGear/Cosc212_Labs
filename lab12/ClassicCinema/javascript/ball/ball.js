@@ -6,6 +6,7 @@ function moveBall(vx, vy) {
     // Find out where the ball is
     x = parseInt($("#ball").css("paddingLeft"), 10);
     y = parseInt($("#ball").css("paddingTop"), 10);
+    console.log(x,y)
 
     // See where the ball is going
     tx = x + vx;
@@ -70,11 +71,15 @@ function moveBall(vx, vy) {
 
     // target opacity
     let to = x/300
-    // change css opacity
-    $("#ball").css("opacity", to);
 
     // Animate this part of the motion, and then make a recursive call
-    $("#ball").animate({paddingTop: ty + "px", paddingLeft: tx + "px"}, t, "linear", function () {moveBall(vx, vy); });
+    $("#ball").animate(
+        {
+            paddingTop: ty + "px", paddingLeft: tx + "px", opacity: to
+        },
+        t, "linear", function () {
+            moveBall(vx, vy);
+        });
 
 }
 

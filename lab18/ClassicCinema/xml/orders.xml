@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<orders>
+<order><delivery><name>Another</name><email>adwaw@afwf.awdaw</email><address>41 dundas st, North Dunedin</address><city>Invercargill</city><postcode>9015</postcode></delivery><items>
+    <item>
+        <title>The Jazz Singer (1927)</title>
+        <price>13.99</price>
+    </item>
+    <item>
+        <title>The Man Who Knew Too Much (1956)</title>
+        <price>11.99</price></item></items></order></orders>
