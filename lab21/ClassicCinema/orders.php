@@ -39,7 +39,8 @@ include("app/header.php");
         echo "</p><strong>Address:</strong> $address<p>";
         echo "</p><strong>City:</strong> $city<p>";
         echo "</p><strong>Postcode:</strong> $postcode<p>";
-        $items = $order->xpath('//item');
+        $items = $orders->items;
+        echo "$items";
         echo "</p><strong>Items: </strong>";
         foreach ($items as $item) {
             echo "$item->title $$item->price; ";

@@ -1,10 +1,56 @@
 <?xml version="1.0"?>
 <orders>
-<order><delivery><name>Another</name><email>adwaw@afwf.awdaw</email><address>41 dundas st, North Dunedin</address><city>Invercargill</city><postcode>9015</postcode></delivery><items>
-    <item>
-        <title>The Jazz Singer (1927)</title>
-        <price>13.99</price>
-    </item>
-    <item>
-        <title>The Man Who Knew Too Much (1956)</title>
-        <price>11.99</price></item></items></order><order><delivery><name>awd</name><email>Imjacobgear@gmail.com</email><address>2 Dolphin Street, North East Valley</address><city>Dunedin</city><postcode>9010</postcode></delivery><items><item><title>Gone With the Wind (1939)</title><price>13.99</price></item></items></order><order><delivery><name>awd</name><email>Imjacobgear@gmail.com</email><address>2 Dolphin Street, North East Valley</address><city>Dunedin</city><postcode>9010</postcode></delivery><items><item><title>Gone With the Wind (1939)</title><price>13.99</price></item></items></order><order><delivery><name>awd</name><email>Imjacobgear@gmail.com</email><address>2 Dolphin Street, North East Valley</address><city>Dunedin</city><postcode>9010</postcode></delivery><items/></order><order><delivery><name>awd</name><email>Imjacobgear@gmail.com</email><address>2 Dolphin Street, North East Valley</address><city>Dunedin</city><postcode>9010</postcode></delivery><items><item><title>The Birds (1963)</title><price>14.99</price></item></items></order></orders>
+    <order>
+        <delivery>
+            <name>Somebody</name>
+            <email>Somebody@gmail.com</email>
+            <address>22 Eagle Street, North East Valley</address>
+            <city>Dunedin</city>
+            <postcode>9010</postcode>
+        </delivery>
+        <items>
+            <item>
+                <title>The Jazz Singer (1927)</title>
+                <price>13.99</price>
+            </item>
+        </items>
+    </order>
+    <order>
+        <delivery>
+            <name>Somebody</name>
+            <email>Santa@gmail.com</email>
+            <address>121b harbour terrace, North Dunedin</address>
+            <city>Invercargill</city>
+            <postcode>9015</postcode>
+        </delivery>
+        <items>
+            <item>
+                <title>Gone With the Wind (1939)</title>
+                <price>13.99</price>
+            </item>
+            <item>
+                <title>The Birds (1963)</title>
+                <price>14.99</price>
+            </item>
+            <item>
+                <title>The Birds (1963)</title>
+                <price>14.99</price>
+            </item>
+        </items>
+    </order>
+    <order>
+        <delivery>
+            <name>Somebody</name>
+            <email>Santa@gmail.com</email>
+            <address>121b harbour terrace, North Dunedin</address>
+            <city>Auckland</city>
+            <postcode>9015</postcode>
+        </delivery>
+        <items>
+            <item>
+                <title>Metropolis (1927)</title>
+                <price>19.99</price>
+            </item>
+        </items>
+    </order>
+</orders>
