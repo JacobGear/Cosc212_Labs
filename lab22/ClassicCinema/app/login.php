@@ -12,25 +12,26 @@ if ($conn->connect_errno) {
 $username =  $conn->real_escape_string($_POST["loginUser"]);
 $password =  $conn->real_escape_string($_POST["loginPassword"]);
 
-$_SESSION['authenticatedUser'] = $username;
 
 $query = "SELECT * FROM Users WHERE username = '$username'";
 $result = $conn->query($query);
 if ($result->num_rows === 0) {
 // OK, there is no user with that username
     echo "Username does not exist!";
+    header("Location: ../register.php");
 } else {
 // Sign the user in
     $row = $result->fetch_assoc();
     if(sha1($password) === $row['password']) {
         echo "Success";
+        $_SESSION['authenticatedUser'] = $username;
+        $_SESSION['role'] = $row['role'];
         echo $_SESSION['lastPage'];
         if(isset($_SESSION['lastPage'])) {
             header("Location:" . $_SESSION['lastPage']);
         } else {
             header("Location: index.php");
         }
-
     }
 }
 $result->free();

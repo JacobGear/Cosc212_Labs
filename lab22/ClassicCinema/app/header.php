@@ -7,7 +7,7 @@ $_SESSION['lastPage'] = $_SERVER['PHP_SELF'];
     <div id="user">
         <?php if (isset($_SESSION['authenticatedUser'])) { ?>
         <div id="logout">
-            <p>Welcome, <?php echo $_SESSION['authenticatedUser']; ?>
+            <p>Welcome, <?php echo $_SESSION['authenticatedUser'] . " " . $_SESSION['role']; ?>
                 <span id="logoutUser"></span></p>
             <form id="logoutForm" action="app/logout.php" method="post">
                 <input type="submit" id="logoutSubmit" value="Logout">
@@ -22,6 +22,7 @@ $_SESSION['lastPage'] = $_SERVER['PHP_SELF'];
                 <input type="password" name="loginPassword" id="loginPassword"><br>
                 <input type="submit" id="loginSubmit" value="Login">
             </form>
+            <input type="button" id="regBtn" value="Register">
         </div>
     </div>
     <?php } ?>
@@ -58,6 +59,11 @@ $_SESSION['lastPage'] = $_SERVER['PHP_SELF'];
                 echo "<li> Cart";
             } else {
                 echo "<li> <a href='cart.php'>Cart</a>";
+            }
+            if (isset($currentPage) && $currentPage === 'orders.php') {
+                echo "<li> Orders";
+            } else {
+                echo "<li> <a href='orders.php'>Orders</a>";
             }
             ?>
 

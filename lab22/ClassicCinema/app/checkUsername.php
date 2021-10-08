@@ -30,8 +30,8 @@ if ($result->num_rows === 0) {
         echo "<p> Passwords dont match! </p>";
     }
 
-    $query2 = "INSERT INTO Users (username, password, email) " .
-        "VALUES ('$username', SHA('$password'), '$email')";
+    $query2 = "INSERT INTO Users (username, password, email, role) " .
+        "VALUES ('$username', SHA('$password'), '$email', 'user')";
     $conn->query($query2);
     if ($conn->error) {
         printf('Connection error: ' . mysqli_connect_error());

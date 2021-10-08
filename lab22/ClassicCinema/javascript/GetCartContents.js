@@ -4,7 +4,7 @@ let GetCartContents = (function(){
     pub.setup = function(){
         $.ajax({
             type: "POST",
-            url: "../app/processCartContents.php",
+            url: "app/processCartContents.php",
             cache: false,
             data: window.sessionStorage.getItem("cart"),
             datatype: 'JSON',

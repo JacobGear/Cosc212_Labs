@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style/style.css">
         <?php
         $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/showHide.js',
-            'javascript/cart.js', 'javascript/reviewsBtnAdd.js');
+            'javascript/cart.js', 'javascript/reviewsBtnAdd.js', 'javascript/register.js');
         include("app/includeScripts.php");
         ?>
     </head>
@@ -24,7 +24,9 @@
 
         <main>
             <h2>Alfred Hitchcock</h2>
-
+            <?php
+            include("app/reviewHTML.php");
+            ?>
             <section class="film">
                 <img src="images/The_Birds.jpg" alt="The Birds">
                 <h3>The Birds (1963)</h3>
@@ -35,6 +37,9 @@
                 $<span class="price">14.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/The_Birds.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -47,6 +52,9 @@
                 $<span class="price">12.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/Dial_M_for_Murder.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -59,6 +67,9 @@
                 $<span class="price">11.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/The_Man_Who_Knew_Too_Much.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -71,6 +82,9 @@
                 $<span class="price">14.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/North_by_Northwest.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -83,6 +97,9 @@
                 $<span class="price">16.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/Vertigo.xml");
+                ?>
             </section>
 
         </main>

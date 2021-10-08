@@ -10,7 +10,8 @@ session_start();
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/style.css">
     <?php
-    $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/cart.js', 'javascript/sampleValidator.js');
+    $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/cart.js', 'javascript/sampleValidator.js',
+        'javascript/register.js');
         include("app/includeScripts.php");
     ?>
 
@@ -35,7 +36,7 @@ include("app/header.php");
     <input type="button" value="Clear Cart" id="clearCart">
 
     <br><br>
-    <form id="checkoutForm" action="app/validateCheckout.php" method="post" novalidate>
+    <form id="checkoutForm" action="validateCheckout.php" method="post" novalidate>
         <fieldset>
             <!-- First section of form is delivery address etc. -->
             <legend>Delivery Details:</legend>

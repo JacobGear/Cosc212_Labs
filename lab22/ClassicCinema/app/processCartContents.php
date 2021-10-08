@@ -15,6 +15,7 @@ echo "</table>";
 $orders = simplexml_load_file('../xml/orders.xml');
 $newOrder = $orders->addChild('order');
 $delivery = $newOrder->addChild('delivery');
+$delivery->addChild('username', $_SESSION['authenticatedUser']);
 $delivery->addChild('name', $_SESSION['deliveryName']);
 $delivery->addChild('email', $_SESSION['deliveryEmail']);
 $delivery->addChild('address', $_SESSION['deliveryAddress1']);

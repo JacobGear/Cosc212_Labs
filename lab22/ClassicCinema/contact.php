@@ -10,7 +10,7 @@
     <?php
     $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/showHide.js',
         'javascript/leaflet.js', 'javascript/leaflet-src.js', 'javascript/leaflet-src.esm.js',
-        'javascript/map.js');
+        'javascript/map.js', 'javascript/register.js');
     include("app/includeScripts.php");
     ?>
 

@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style/style.css">
         <?php
         $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/showHide.js',
-            'javascript/cart.js', 'javascript/reviewsBtnAdd.js');
+            'javascript/cart.js', 'javascript/reviewsBtnAdd.js', 'javascript/register.js');
         include("app/includeScripts.php");
         ?>
     </head>
@@ -22,7 +22,9 @@
 
         <main>
             <h2>Classic Films</h2>
-
+            <?php
+            include("app/reviewHTML.php");
+            ?>
             <section class="film">
                 <img src="images/Gone_With_the_Wind.jpg" alt="Gone With the Wind">
                 <h3>Gone With the Wind (1939)</h3>
@@ -33,6 +35,9 @@
                 $<span class="price">13.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                    addReviewForm("../reviews/Gone_With_the_Wind.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -45,6 +50,9 @@
                 $<span class="price">13.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                    addReviewForm("../reviews/The_Jazz_Singer.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -57,6 +65,9 @@
                 $<span class="price">19.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                    addReviewForm("../reviews/Metropolis.xml");
+                ?>
             </section>
 
         </main>

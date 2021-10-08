@@ -7,8 +7,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/style.css">
     <?php
-    $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/showHide.js',
-        'javascript/ArrLists.js', 'javascript/register.js');
+    $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/register.js');
     include("app/includeScripts.php");
     ?>
 </head>
@@ -20,16 +19,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 include("app/header.php");
 ?>
 
-        <main>
-            <p>
-                Welcome to Classic Cinema, your online store for classic film.
-            </p>
-
-            <div id="arrImg"></div>
-
-        </main>
+<main>
+    <p>
+        You are not logged in, try logging in at the top left of the page!
+    </p>
+</main>
 
 <?php require ("app/footer.php"); ?>
 
-    </body>
+</body>
 </html>

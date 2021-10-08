@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style/style.css">
         <?php
         $scriptList = array('javascript/jquery-3.6.0-un.js', 'javascript/showHide.js',
-            'javascript/cart.js', 'javascript/reviewsBtnAdd.js');
+            'javascript/cart.js', 'javascript/reviewsBtnAdd.js', 'javascript/register.js');
         include("app/includeScripts.php");
         ?>
     </head>
@@ -22,7 +22,9 @@
 
         <main>
             <h2>Science Fiction and Horror</h2>
-
+            <?php
+                include("app/reviewHTML.php");
+            ?>
             <section class="film">
                 <img src="images/Attack_of_the_50ft_Woman.jpg" alt="Attack of the 50ft Woman">
                 <h3>Attack of the 50 Foot Woman (1958)</h3>
@@ -33,6 +35,9 @@
                 $<span class="price">8.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/Attack_of_the_50ft_Woman.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -45,6 +50,9 @@
                 $<span class="price">7.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/The_Day_of_the_Triffids.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -57,6 +65,9 @@
                 $<span class="price">13.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/Forbidden_Planet.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -69,6 +80,9 @@
                 $<span class="price">11.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/King_Kong.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -81,6 +95,9 @@
                 $<span class="price">9.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/The_Mummy.xml");
+                ?>
             </section>
 
             <section class="film">
@@ -93,6 +110,9 @@
                 $<span class="price">14.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/Plan_9_from_Outer_Space.xml");
+                ?>
             </section>
 
 
@@ -106,6 +126,9 @@
                 $<span class="price">7.99</span>
                 <input type="button" value="Add to Cart" class="buy">
                 </p>
+                <?php
+                addReviewForm("../reviews/Tarantula.xml");
+                ?>
             </section>
 
         </main>
